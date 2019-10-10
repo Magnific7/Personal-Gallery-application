@@ -58,10 +58,3 @@ def article(request,article_id):
     except DoesNotExist:
         raise Http404()
     return render(request,"all-news/article.html", {"article":article})
-
-def posts(request):
-    try:
-        posts = Article.objects.get_all()
-    except DoesNotExist:
-        raise Http404()
-    return render(request,"all-news/posts.html", {"article":article})

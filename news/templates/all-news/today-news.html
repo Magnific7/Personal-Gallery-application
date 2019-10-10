@@ -6,8 +6,7 @@
 
   <!-- Looping through news   -->
   {% for news_item in news %}
-
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><img src="{{news_item.article_image.url}}" class="img-responsive" alt="Image"></button>
+  <img src="{{news_item.article_image.url}}" height='120px' width="100px" class="img-responsive" alt="Image" data-toggle="modal" data-target="#myModal">
 
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
@@ -31,7 +30,7 @@
       
     </div>
   </div>
-  
+  <p>Posted {{news_item.pub_date|timesince}} by {{news_item.editor}}</p>
 
   {% empty %}
   <div class="row">
