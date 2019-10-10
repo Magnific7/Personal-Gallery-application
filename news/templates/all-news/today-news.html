@@ -1,0 +1,44 @@
+{%extends 'all-news/base.html'%}
+{% block content %} 
+{{ block.super}}
+
+<div class="container">
+
+  <!-- Looping through news   -->
+  {% for news_item in news %}
+
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><img src="{{news_item.article_image.url}}" class="img-responsive" alt="Image"></button>
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">{{ news_item.title }}</h4>
+          
+        </div>
+        <div class="modal-body">
+          <img src="{{news_item.article_image.url}}" class="img-responsive" alt="Image" height='70%' width='70%'>
+          <p>{{news_item.post}}</p>
+          <p>Posted {{news_item.pub_date|timesince}} by {{news_item.editor}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+
+  {% empty %}
+  <div class="row">
+    <h2 class="text-center">There No News Items</h2>
+  </div>
+  {% endfor %}
+
+</div>
+
+{% endblock %}
