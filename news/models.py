@@ -2,47 +2,54 @@ from django.db import models
 import datetime as dt
 
 # Create your models here.
-class Editor(models.Model):
-    first_name = models.CharField(max_length =30)
-    last_name = models.CharField(max_length =30)
-    email = models.EmailField()
-    phone_number = models.CharField(max_length = 10,blank =True)
+class Location(models.Model):
+    location = models.CharField(max_length =30)
 
     def __str__(self):
-        return self.first_name
+        return self.location
 
-    def save_editor(self):
+    def save_location(self):
         self.save()
 
     class Meta:
-        ordering = ['first_name']
+        ordering = ['location']
 
-class tags(models.Model):
+class category(models.Model):
     name = models.CharField(max_length =30)
 
     def __str__(self):
         return self.name
 
-class Article(models.Model):
-    title = models.CharField(max_length =60)
-    post = models.TextField()
-    editor = models.ForeignKey(Editor)
-    tags = models.ManyToManyField(tags)
+class Image(models.Model):
+    name = models.CharField(max_length =60)
+    description = models.TextField()
+    location = models.ForeignKey(Location)
+    category = models.ForeignKey(category)
     pub_date = models.DateTimeField(auto_now_add=True)
-    article_image = models.ImageField(upload_to = 'articles/', )
+    image = models.ImageField(upload_to = 'articles/', )
 
     @classmethod
-    def todays_news(cls):
-        today = dt.date.today()
-        news = cls.objects.filter(pub_date__date = today)
-        return news
+    def displaying_images(cls):
+        all_images = cls.objects.all()
+        return all_images
 
     @classmethod
-    def days_news(cls,date):
-        news = cls.objects.filter(pub_date__date = date)
-        return news
+    def get_image_by_id(cls,id):
+        images = cls.objects.filter(id = id)
+        return images
 
     @classmethod
-    def search_by_title(cls,search_term):
-        news = cls.objects.filter(title__icontains=search_term)
-        return news
+    def filter_by_location(cls,location):
+        locate = cls.objects.filter(location = location)
+        return locate
+
+    @classmethod
+    def search_image(cls,category):
+        categories = cls.objects.filter(category__icontains=search_term)
+        return categories
+
+    @classmethod
+    def filter_by_category(cls,category):
+        category = cls.objects.filter(category=category)
+        return category
+    

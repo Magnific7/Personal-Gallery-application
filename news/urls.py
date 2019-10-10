@@ -4,11 +4,9 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns=[
-    url(r'^$',views.news_today,name='newsToday'),
-    url(r'^archives/(\d{4}-\d{2}-\d{2})/$',views.past_days_news,name = 'pastNews'),
+    url(r'^$',views.all_images,name='allImages'),
     url(r'^search/', views.search_results, name='search_results'),
-    url(r'^article/(\d+)',views.article,name ='article'),
-    url(r'^posts/',views.article,name ='posts')
+    url(r'^article/(\d+)',views.image,name ='image')
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
