@@ -8,7 +8,20 @@ class Location(models.Model):
     def __str__(self):
         return self.location
 
+    @classmethod
+    def get_location_id(cls,id):
+        locate = Location.objects.get(pk=id)
+        return locate
+
+
     def save_location(self):
+        self.save()
+    
+    def delete_location(self):
+        self.delete()
+
+    def update_location(self, update):
+        self.location = update
         self.save()
 
     class Meta:
@@ -19,6 +32,21 @@ class category(models.Model):
 
     def __str__(self):
         return self.cname
+        
+    def save_category(self):
+        self.save()
+    
+    def delete_category(self):
+        self.delete()
+
+    def update_category(self,update):
+        self.cname = update
+        self.save()
+
+    @classmethod
+    def get_category_id(cls,id):
+        cats = category.objects.get(pk=id)
+        return cats
 
 class Image(models.Model):
     name = models.CharField(max_length =60)
@@ -28,20 +56,30 @@ class Image(models.Model):
     pub_date = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(upload_to = 'articles/', )
 
+    def save_image(self):
+        self.save()
+    
+    def delete_image(self):
+        self.delete()
+
+    def update_image(self,update):
+        self.image = update
+        self.save()
+
     @classmethod
     def displaying_images(cls):
         all_images = cls.objects.all()
         return all_images
 
     @classmethod
-    def get_image_by_id(cls,id):
+    def get_image_by_id(cls, id):
         images = cls.objects.filter(id = id)
         return images
 
     @classmethod
-    def filter_by_location(cls,location):
-        locate = cls.objects.filter(location = location)
-        return locate
+    def filter_by_location(cls, id):
+        images = cls.objects.filter(location_id=id)
+        return images
 
     @classmethod
     def search_image(cls,search_term):

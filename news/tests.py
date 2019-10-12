@@ -1,51 +1,94 @@
 from django.test import TestCase
-from .models import Editor,Article,tags
+from .models import Location,Image,category
 import datetime as dt
 
 # Create your tests here.
-class EditorTestClass(TestCase):
+class LocationTestClass(TestCase):
 
     # Set up method
     def setUp(self):
-        self.james= Editor(first_name = 'James', last_name ='Muriuki', email ='james@moringaschool.com')
+        self.Paris= Location(location='Paris')
+        self.Paris.save_location()
 
     # Testing  instance
     def test_instance(self):
-        self.assertTrue(isinstance(self.james,Editor))
+        self.assertTrue(isinstance(self.Paris,Location))
+
+    def test_update_location(self):
+        location = Location.get_location_id(self.Paris.id)
+        location.update_location('London')
+        location = Location.get_location_id(self.Paris.id)
+        self.assertTrue(location.location == 'London')
+
+    def tearDown(self):
+        self.Paris.delete_location()
 
     # Testing Save Method
     def test_save_method(self):
-        self.james.save_editor()
-        editors = Editor.objects.all()
-        self.assertTrue(len(editors) > 0)
+        self.Paris.save_location()
+        location = Location.objects.all()
+        self.assertTrue(len(location) > 0)
 
-class ArticleTestClass(TestCase):
+class ImageTestClass(TestCase):
 
     def setUp(self):
-        # Creating a new editor and saving it
-        self.james= Editor(first_name = 'James', last_name ='Muriuki', email ='james@moringaschool.com')
-        self.james.save_editor()
+        # Creating a new category and saving it
+        self.music= category(cname='music')
+        self.music.save_category()
 
-        # Creating a new tag and saving it
-        self.new_tag = tags(name = 'testing')
-        self.new_tag.save()
+        # Creating a new location and saving it
+        self.Paris = Location(location = 'testing')
+        self.Paris.save()
 
-        self.new_article= Article(title = 'Test Article',post = 'This is a random test Post',editor = self.james)
-        self.new_article.save()
-
-        self.new_article.tags.add(self.new_tag)
+        self.sunshine= Image(name = 'sun',description = 'description',category = self.music,location = self.Paris)
+        self.sunshine.save()
 
     def tearDown(self):
-        Editor.objects.all().delete()
-        tags.objects.all().delete()
-        Article.objects.all().delete()
+        Location.objects.all().delete()
+        category.objects.all().delete()
+        Image.objects.all().delete()
 
-    def test_get_news_today(self):
-        today_news = Article.todays_news()
-        self.assertTrue(len(today_news)>0)
-        
-    def test_get_news_by_date(self):
-        test_date = '2017-03-17'
-        date = dt.datetime.strptime(test_date, '%Y-%m-%d').date()
-        news_by_date = Article.days_news(date)
-        self.assertTrue(len(news_by_date) == 0)
+    def test_instance(self):
+        self.assertTrue(isinstance(self.sunshine,Image))
+
+    def save_method(self):
+        self.sunshine.save_image()
+        images = Image.objects.all()
+        self.assertTrue(len(images) > 0)
+
+    def test_delete_method(self):
+        self.sunshine.save_image()
+        self.sunshine.delete_image()
+
+    # def test_update_image(self):
+    #     self.sunshine.save_image()
+    #     new_image = Image.objects.filter(image='image2.jpg').update(image='download.jpg')
+    #     images = Image.objects.filter(image='download.jpg')
+    #     self.assertTrue(images.image, 'download.jpg')
+
+class CategoryTestClass(TestCase):
+
+    # Set up method
+    def setUp(self):
+        self.food= category(cname='food')
+        self.food.save_category()
+
+    # Testing  instance
+    def test_instance(self):
+        self.assertTrue(isinstance(self.food,category))
+
+    def test_update_category(self):
+        self.food.save_category()
+        image = category.get_category_id(self.food.id)
+        # image.update_category('travel')
+        cate = category.get_category_id(self.food.id)
+        self.assertTrue(image, cate)
+
+    def tearDown(self):
+        self.food.delete_category()
+
+    # Testing Save Method
+    def test_save_method(self):
+        self.food.save_category()
+        cname = category.objects.all()
+        self.assertTrue(len(cname) > 0)

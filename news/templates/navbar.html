@@ -24,8 +24,9 @@
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
           
               {% for loc in location %}
-                  <li><a href="/">{{loc.location}}</a></li>
-          
+              <li><a href="/">{{loc.location}}</a></li>
+
+                  <!-- <li><a href="/location/{{loc.id}}">{{loc.location}}</a></li> -->
               {% endfor %}
           
             </ul>

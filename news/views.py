@@ -13,6 +13,8 @@ def all_images(request):
     images = Image.displaying_images()
     location = Location.objects.all()
     categories = category.objects.all()
+    print(location)
+
     return render(request, 'all-news/today-news.html', {"date": date,"images":images,"location":location,"category":category})
 
 def convert_dates(dates):
@@ -40,14 +42,9 @@ def search_results(request):
         message = "You haven't searched for any term"
         return render(request, 'all-news/search.html',{"message":message})
 
-def image(request,images_id):
-    try:
-        image = Image.objects.get(id = images_id)
-        print('image.name')
-    except DoesNotExist:
-        raise Http404()
-    return render(request,"all-news/article.html", {"image":image})
-
+def location_filter(request,location_id):
+    locate = Image.filter_by_location(id=location_id)
+    return render(request, 'location.html', {'locate':locate})
 # def copy_url(request,image_url):
 #     image_url = Image.objects.get(image=image_url)
 #     print('image_url.url')

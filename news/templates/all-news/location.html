@@ -1,0 +1,27 @@
+{%extends 'all-news/base.html'%}
+
+ {% block content %}
+
+ <div class="container">
+{% for location in locate %}
+   <div class="row">
+     <img src="{{location.image.url}}"  class="img-responsive" alt="">
+   </div>
+
+   <div class="row">
+     <h1 class="text-center">{{location.name}}</h1>
+   </div>
+
+   <div class="row">
+     <p>description:{{location.description}}</p>
+   </div>
+
+   <div class="row">
+     <p>Posted {{location.pub_date|timesince}} </p>
+     <p>location:{{location.location}}</p>
+     <p>category:{{location.category}}</p>
+   </div>
+{% endfor %}
+ </div>
+
+ {% endblock %}
