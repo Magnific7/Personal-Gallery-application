@@ -14,10 +14,35 @@
   <div class="row">
 
   {% if searched_images %}
-    {% for image in searched_images %}
-      <div class="col-sm-6 col-md-3">
-         <a href='/image/{{ image.id }}'> <h1>{{image.title}}</h1></a>
-      </div>
+    {% for image_item in searched_images %}
+        <img src="{{image_item.image.url}}" height='120px' width="100px" class="img-responsive" alt="Image" data-toggle="modal" data-target="#modal-default{{image_item.id}}">
+
+        <div class="modal fade" id="modal-default{{image_item.id}}" role="dialog">
+          <div class="modal-dialog">
+          
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">{{ image_item.title }}</h4>
+                
+              </div>
+              <div class="modal-body">
+                <img src="{{image_item.image.url}}" class="img-responsive" alt="Image" height='70%' width='70%'>
+                <p>Name:{{image_item.name}}</p>
+                <p>Desrciption:{{image_item.description}}</p>
+                <p>Posted {{image_item.pub_date|timesince}}</p>
+                <p>Location {{image_item.location}}</p>
+                <p>Category:{{image_item.category}}</p>
+                <p></p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
     {% endfor %}
   {% endif %}
   </div>

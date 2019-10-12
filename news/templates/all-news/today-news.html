@@ -6,9 +6,9 @@
 
   <!-- Looping through image   -->
   {% for image_item in images %}
-  <img src="{{image_item.image.url}}" height='120px' width="100px" class="img-responsive" alt="Image" data-toggle="modal" data-target="#myModal">
+  <img src="{{image_item.image.url}}" height='120px' width="100px" class="img-responsive" alt="Image" data-toggle="modal" data-target="#modal-default{{image_item.id}}">
 
-  <div class="modal fade" id="myModal" role="dialog">
+  <div class="modal fade" id="modal-default{{image_item.id}}" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
@@ -20,8 +20,12 @@
         </div>
         <div class="modal-body">
           <img src="{{image_item.image.url}}" class="img-responsive" alt="Image" height='70%' width='70%'>
-          <p>{{image_item.post}}</p>
-          <p>Posted {{image_item.pub_date|timesince}} by {{image_item.editor}}</p>
+          <p>Name:{{image_item.name}}</p>
+          <p>Desrciption:{{image_item.description}}</p>
+          <p>Posted {{image_item.pub_date|timesince}}</p>
+          <p>Location {{image_item.location}}</p>
+          <p>Category:{{image_item.category}}</p>
+          <p></p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
