@@ -9,3 +9,4 @@ Users would like to:
 * View all images submitted.
 * Click on images to display more details.
 * Search for images by category.
+* Copy links to images to share with their friends
