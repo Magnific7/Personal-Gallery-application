@@ -6,3 +6,4 @@ This is an application that allows users to view images. Image details are store
 ## User Stories
 These are the behaviours/features that the application implements for use by a user.
 Users would like to:
+* View all images submitted.
