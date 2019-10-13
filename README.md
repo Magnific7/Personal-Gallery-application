@@ -25,3 +25,4 @@ Admin should:
 | Admin Authentication | **/admin/** | Access Admin dashboard |
 | Display all images | **the gallery** | Clickable links to open any images in a modal |
 | Display single images on click | **On  click** | All details should be viewed|
+| To add an image  | **Through Admin dashboard** | Add and add categories and tag location of Image|
