@@ -44,7 +44,7 @@ def search_results(request):
 
 def location_filter(request,location_id):
     locate = Image.filter_by_location(id=location_id)
-    return render(request, 'location.html', {'locate':locate})
+    return render(request, 'all-news/location.html', {'locate':locate})
 # def copy_url(request,image_url):
 #     image_url = Image.objects.get(image=image_url)
 #     print('image_url.url')

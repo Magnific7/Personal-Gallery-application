@@ -3,10 +3,10 @@
 {{ block.super}}
 
 <div class="container">
-
+<div class="row">
   <!-- Looping through image   -->
   {% for image_item in images %}
-  <div style="display: flex;">
+   <div class="col-md-4">
   <img src="{{image_item.image.url}}" height='300px' width="300px" style='display: flex;' class="img-responsive" alt="Image" data-toggle="modal" data-target="#modal-default{{image_item.id}}">
 </div>
   <div class="modal fade" id="modal-default{{image_item.id}}" role="dialog">
@@ -38,7 +38,7 @@
       
     </div>
   </div>
-
+</div>
   {% empty %}
   <div class="row">
     <h2 class="text-center">There No image Items</h2>
