@@ -22,3 +22,4 @@ Admin should:
 ## Specifications
 | Behaviour | Input | Output |
 | :---------------- | :---------------: | ------------------: |
+| Admin Authentication | **On demand** | Access Admin dashboard |
