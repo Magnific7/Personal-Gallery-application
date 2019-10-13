@@ -30,3 +30,11 @@ Admin should:
 | To delete an image  | **Through Admin dashboard ** | click on image object and confirm by delete button|
 | To search  | **Enter text in search bar** | Users can search by category|
 | To filter by Location  | **Click drop-down on navbar** | Users can view images by Location|
+
+
+## SetUp / Installation Requirements
+### Prerequisites
+* python3.6
+* pip
+* virtualenv
+* Requirements.txt
