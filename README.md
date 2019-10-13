@@ -20,3 +20,4 @@ Admin should:
 * Update image post details.
 
 ## Specifications
+| Behaviour | Input | Output |
