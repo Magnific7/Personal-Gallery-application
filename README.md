@@ -17,3 +17,4 @@ Admin should:
 * Sign in to the gallery
 * Create new images for showcasing
 * Delete images
+* Update image post details.
