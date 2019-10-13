@@ -12,3 +12,5 @@ Users would like to:
 * Copy links to images to share with their friends
 ## Admin Abilities
 These are the behaviours/features that the application implements for use by the admin.
+
+Admin should:
