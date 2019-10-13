@@ -8,3 +8,4 @@ These are the behaviours/features that the application implements for use by a u
 Users would like to:
 * View all images submitted.
 * Click on images to display more details.
+* Search for images by category.
