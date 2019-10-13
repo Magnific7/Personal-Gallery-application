@@ -14,3 +14,4 @@ Users would like to:
 These are the behaviours/features that the application implements for use by the admin.
 
 Admin should:
+* Sign in to the gallery
