@@ -22,4 +22,4 @@ Admin should:
 ## Specifications
 | Behaviour | Input | Output |
 | :---------------- | :---------------: | ------------------: |
-| Admin Authentication | **On demand** | Access Admin dashboard |
+| Admin Authentication | **/admin/** | Access Admin dashboard |
