@@ -5,12 +5,6 @@
 <head>
   <meta charset="utf-8">
 
-  {% if title %}
-  <title>{{title}}</title>
-  {% else %}
-    <title>Welcome to my gallery</title>
-  {% endif %}
-
   {% block styles %}
     {% bootstrap_css %}
     <link rel="stylesheet" href="{% static 'css/basenews.css' %}">
