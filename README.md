@@ -21,3 +21,4 @@ Admin should:
 
 ## Specifications
 | Behaviour | Input | Output |
+| :---------------- | :---------------: | ------------------: |
