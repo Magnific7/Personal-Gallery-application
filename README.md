@@ -18,3 +18,5 @@ Admin should:
 * Create new images for showcasing
 * Delete images
 * Update image post details.
+
+## Specifications
