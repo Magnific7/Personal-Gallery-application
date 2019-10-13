@@ -42,3 +42,11 @@ Admin should:
 * To run the tests for the class files:
 
         $ python3.6 manage.py test 
+## Technologies Used
+* Python3.6
+* Javascript
+* Django and postgresql
+
+## License
+
+Copyright (c) 2019 Magnific
