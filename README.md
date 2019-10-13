@@ -26,3 +26,4 @@ Admin should:
 | Display all images | **the gallery** | Clickable links to open any images in a modal |
 | Display single images on click | **On  click** | All details should be viewed|
 | To add an image  | **Through Admin dashboard** | Add and add categories and tag location of Image|
+| To edit image  | **Through Admin dashboard** | Redirected to the  image form details and editing happens|
