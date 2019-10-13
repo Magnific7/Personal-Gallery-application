@@ -10,3 +10,4 @@ Users would like to:
 * Click on images to display more details.
 * Search for images by category.
 * Copy links to images to share with their friends
+## Admin Abilities
