@@ -6,8 +6,10 @@
 <div class="row">
   <!-- Looping through image   -->
   {% for image_item in images %}
-   <div class="col-md-4">
-  <img src="{{image_item.image.url}}" height='300px' width="300px" class="img-responsive" alt="Image" data-toggle="modal" data-target="#modal-default{{image_item.id}}">
+   <div class="col-md-3">
+     <div class="card" style="width:auto;">
+  <img style="height:300px; width:300px;" src="{{image_item.image.url}}"  class="img-responsive" alt="Image" data-toggle="modal" data-target="#modal-default{{image_item.id}}">
+</div>
 </div>
   <div class="modal fade" id="modal-default{{image_item.id}}" role="dialog">
     <div class="modal-dialog">
